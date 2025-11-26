@@ -42,5 +42,3 @@ app.get("/api/hello", (req, res) => res.json({ message: "Hello from backend 🚀
 // Fallback route
 app.get("/", (req, res) => res.send("Portfolio backend is running"));
 
-// Start server
-app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
