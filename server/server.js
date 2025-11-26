@@ -12,6 +12,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // Middleware
 app.use(cors()); // allows frontend requests during dev
@@ -21,6 +22,10 @@ app.use(express.json());
 app.use("/api/contacts", contactsRouter);
 app.use("/api/projects", projectsRouter);
 app.use("/api/auth", authRouter); // ✅ auth routes (register/login)
+app.use(cors({
+  origin: ["https://DTech.vercel.app"],
+  credentials: true
+}));
 
 // MongoDB connection
 mongoose
